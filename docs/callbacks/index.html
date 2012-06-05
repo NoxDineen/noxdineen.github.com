@@ -1,0 +1,462 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" dir="ltr" lang="en-US">
+
+<head profile="http://gmpg.org/xfn/11">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<title>FreshBooks Developer Site  &#8211; Callbacks</title>
+
+<link rel="pingback" href="http://developers.freshbooks.com/wp/xmlrpc.php" />
+
+<link href="http://www.freshbooks.com/styles/reset.css" rel="stylesheet" type="text/css" />
+<link href="http://www.freshbooks.com/styles/fresh-styles.css" rel="stylesheet" type="text/css" />
+
+<link rel="stylesheet" href="http://developers.freshbooks.com/wp/wp-content/themes/FreshDev/style.css" type="text/css" media="screen" />
+
+<link rel="icon" href="http://www.freshbooks.com/favicon.ico" type="image/x-icon" /> 
+<link rel="shortcut icon" href="http://www.freshbooks.com/favicon.ico" type="image/x-icon" />
+
+<!-- SyntaxHilighter -->
+<link type="text/css" rel="stylesheet" href="/javascript/syntaxhighlighter/styles/SyntaxHighlighter.css"></link>
+<script language="javascript" src="/javascript/syntaxhighlighter/js/shCore.js"></script>
+<script language="javascript" src="/javascript/syntaxhighlighter/js/shBrushJScript.js"></script>
+<script language="javascript" src="/javascript/syntaxhighlighter/js/shBrushPhp.js"></script>
+<script language="javascript" src="/javascript/syntaxhighlighter/js/shBrushPython.js"></script>
+
+<script language="javascript" src="/javascript/syntaxhighlighter/js/shBrushRuby.js"></script>
+<script language="javascript" src="/javascript/syntaxhighlighter/js/shBrushXml.js"></script>
+
+<script language="javascript">
+window.onload = function () {
+	dp.SyntaxHighlighter.ClipboardSwf = '/javascript/syntaxhighlighter/flash/clipboard.swf';
+	dp.SyntaxHighlighter.HighlightAll('code');
+}
+</script>
+
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="http://developers.freshbooks.com/wp/xmlrpc.php?rsd" />
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="http://developers.freshbooks.com/wp/wp-includes/wlwmanifest.xml" /> 
+<link rel='index' title='FreshBooks Developer Site' href='http://developers.freshbooks.com/' />
+<link rel='up' title='API Documentation' href='http://developers.freshbooks.com/docs/' />
+<link rel='prev' title='Sample Code' href='http://developers.freshbooks.com/sample-code/' />
+<link rel='next' title='Categories' href='http://developers.freshbooks.com/docs/categories/' />
+<meta name="generator" content="WordPress 3.2.1" />
+<link rel='canonical' href='http://developers.freshbooks.com/docs/callbacks/' />
+
+</head>
+<body class="apipage">
+
+<div id="container">
+
+<div id="header" class="buttons30day">
+	<div class="logo">
+		<a href="http://www.freshbooks.com"></a>
+	</div>
+	
+			
+		<div class="phoneus headalt">
+			<p>The Leader in Online Invoicing: <a href="http://www.freshbooks.com/careers/?header_careers=1">We're Hiring!</a> | 
+			<a href="http://www.freshbooks.com/contact.php?header_contact=1">Contact</a></p>
+			<div class="button-try-top">
+				<a href="https://secure.freshbooks.com/subscribe.php?header_button=1" onClick="_gaq.push(['_trackEvent', 'Subscribe', 'Click', 'Header']);">
+				<img src="http://www.freshbooks.com/images/buttons/try-head-30.gif" width="219" height="90" alt="Try it Free for 30 Days" /></a>
+			</div> 
+		</div>
+	
+		
+	<div class="button-try-top">
+		<a href="https://secure.freshbooks.com/subscribe.php?header_button=1" onClick="_gaq.push(['_trackEvent', 'Subscribe', 'Click', 'Header']);">
+			<img src="http://www.freshbooks.com/images/buttons/try-head-30.gif" width="219" height="90" alt="Try it Free for 30 Days" />
+		</a>
+	</div>
+	
+	<div class="login-container">
+		<p>or</p>
+		<div class="login-button">
+			<a href="https://secure.freshbooks.com/loginSearch.php" class="login-main" onClick="_gaq.push(['_trackEvent', 'Login', 'Click', 'Header']);"><img src="http://www.freshbooks.com/images/buttons/button-login.png" alt="Login"></a>
+		</div>
+	</div>
+	
+		
+	<br clear="all"/>
+	<div id="menu">
+		<ul class="menu-main">
+			<li><a href="http://www.freshbooks.com/?header_home=1" class="homemenu">Home</a></li>
+			<li><a href="http://www.freshbooks.com/tour.php?header_tour=1">Tour</a></li>
+			<li><a href="http://www.freshbooks.com/pricing.php?header_signup=1">Signup</a></li>
+			<li><a href="http://www.freshbooks.com/manifesto.php?header_about=1">About</a></li>
+			<li class="menuend">&nbsp;</li>
+		</ul>
+
+		<div class="menu-main2">
+			<ul>
+				<li class="hover-active-sup"><a href="http://community.freshbooks.com/support/?header_support=1" class="hover-drop">Support</a>
+					<ul>
+						<li><a href="/support/?header_faq=1">FAQ</a></li>
+						<li><a href="http://www.freshbooks.com/contact.php?fromfaq=1&header_contact=1">Contact</a></li>
+					</ul>
+				</li>
+				<li><a href="http://www.freshbooks.com/blog/?header_blog=1">Blog</a></li>
+				<li><a href="http://developers.freshbooks.com?header_api=1">API</a></li>
+				<li><a href="http://community.freshbooks.com/addons/?header_addons=1">Add-ons</a></li>
+				<li class="hover-active-acc"><a href="http://www.freshbooks.com/accountants/?header_accountants=1" class="hover-drop accountantmenu">Accountants</a>
+					<ul>
+						<li><a href="http://www.freshbooks.com/accountants/?header_accountant=1">I'm an Accountant</a></li>
+						<li><a href="http://www.freshbooks.com/accountants/accountant-map.php?header_accountant-map=1">I'm looking for an Accountant</a></li>
+					</ul>
+				</li>
+			</ul>
+		</div>
+	</div>
+</div> 
+
+<div class="col-668">
+	<div class="shadow">
+		<div class="shadow-top"></div> 
+
+		<div class="marg-20">
+
+			
+									<div id="header-category"></div>
+					<h1>Callbacks</h1>
+				
+				<p>Only admin users have access to the callbacks API methods.</p>
+<ul class="bookmark">
+<li><a href="#callback.create">callback.create</a></li>
+<li><a href="#callback.verify">callback.verify</a></li>
+<li><a href="#callback.resendToken">callback.resendToken</a></li>
+<li><a href="#callback.list">callback.list</a></li>
+<li><a href="#callback.delete">callback.delete</a></li>
+</ul>
+<p>The Callbacks API allows you to register HTTP URIs that are used for our implementation of <a href="http://developers.freshbooks.com/api/webhooks" target="_blank">Webhooks</a>.</p>
+<h2 id="callback.create" class="prepend-top-1">callback.create</h2>
+<p>
+Create a new callback for a specific event or a set of events. See <a href="#events">list of valid events</a>.
+</p>
+<h4>Request</h4>
+<pre name="code" class="xml">
+&lt;?xml version="1.0" encoding="utf-8"?&gt;
+&lt;request method="callback.create"&gt;
+  &lt;callback&gt;
+    &lt;event&gt;invoice.update&lt;/event&gt;
+    &lt;!-- Must be a valid HTTP URI --&gt;
+    &lt;uri&gt;http://example.com/webhooks/ready&lt;/uri&gt;
+  &lt;/callback&gt;
+&lt;/request&gt;
+</pre>
+<h4>Response</h4>
+<pre name="code" class="xml">
+&lt;?xml version="1.0" encoding="utf-8"?&gt;
+&lt;response xmlns="http://www.freshbooks.com/api/" status="ok"&gt;
+  &lt;callback_id&gt;20&lt;/callback_id&gt;
+&lt;/response&gt;
+</pre>
+<h2 id="callback.verify" class="prepend-top-1">callback.verify</h2>
+<p>Verify a callback using a unique verification code that was sent when the callback was first created.</p>
+<h4>Request</h4>
+<pre name="code" class="xml">
+&lt;?xml version="1.0" encoding="utf-8"?&gt;
+&lt;request method="callback.verify"&gt;
+  &lt;callback&gt;
+    &lt;callback_id&gt;20&lt;/callback_id&gt;
+    &lt;verifier&gt;YLN6RcfR3Q99Xxmfzz8WdJChgVjb4uZ42&lt;/verifier&gt;
+  &lt;/callback&gt;
+&lt;/request&gt;
+</pre>
+<h4>Response</h4>
+<pre name="code" class="xml">
+&lt;?xml version="1.0" encoding="utf-8"?&gt;
+&lt;response xmlns="http://www.freshbooks.com/api/" status="ok" /&gt;
+</pre>
+<h2 id="callback.resendToken" class="prepend-top-1">callback.resendToken</h2>
+<p>Resend a verification code to an unverified callback. Note that no token will be sent if the callback is already verified.</p>
+<h4>Request</h4>
+<pre name="code" class="xml">
+&lt;?xml version="1.0" encoding="utf-8"?&gt;
+&lt;request method="callback.resendToken"&gt;
+  &lt;callback_id&gt;20&lt;/callback_id&gt;
+&lt;/request&gt;
+</pre>
+<h4>Response</h4>
+<pre name="code" class="xml">
+&lt;?xml version="1.0" encoding="utf-8"?&gt;
+&lt;response xmlns="http://www.freshbooks.com/api/" status="ok" /&gt;
+</pre>
+<h2 id="callback.list" class="prepend-top-1">callback.list</h2>
+<p>Return a list of registered callbacks. You can optionally filter by event or uri.</p>
+<p><strong>Note:</strong> This method uses <a href="http://developers.freshbooks.com/api/pagination">pagination</a></p>
+<h4>Request</h4>
+<pre name="code" class="xml">
+&lt;?xml version="1.0" encoding="utf-8"?&gt;
+&lt;request method="callback.list"&gt;
+  &lt;!-- Filter by event (Optional) --&gt;
+  &lt;event&gt;invoice.create&lt;/event&gt;
+  &lt;!-- Filter by uri (Optional) --&gt;
+  &lt;uri&gt;http://example.com/webhooks/ready&lt;/uri&gt;
+&lt;/request&gt;
+</pre>
+<h4>Response</h4>
+<pre name="code" class="xml">
+&lt;?xml version="1.0" encoding="utf-8"?&gt;
+&lt;response xmlns="http://www.freshbooks.com/api/" status="ok"&gt;
+  &lt;callbacks page="1" per_page="25" pages="1" total="2"&gt;
+    &lt;callback&gt;
+      &lt;callback_id&gt;20&lt;/callback_id&gt;
+      &lt;uri&gt;http://example.com/webhooks/ready&lt;/uri&gt;
+      &lt;event&gt;invoice.create&lt;/event&gt;
+      &lt;verified&gt;0&lt;/verified&gt;
+    &lt;/callback&gt;
+    &lt;callback&gt;
+      &lt;callback_id&gt;21&lt;/callback_id&gt;
+      &lt;uri&gt;http://example.com/webhooks/ready&lt;/uri&gt;
+      &lt;event&gt;invoice.create&lt;/event&gt;
+      &lt;verified&gt;1&lt;/verified&gt;
+    &lt;/callback&gt;
+  &lt;/callbacks&gt;
+&lt;/response&gt;
+</pre>
+<h2 id="callback.delete" class="prepend-top-1">callback.delete</h2>
+<p>Delete an existing callback.</p>
+<h4>Request</h4>
+<pre name="code" class="xml">
+&lt;?xml version="1.0" encoding="utf-8"?&gt;
+&lt;request method="callback.delete"&gt;
+  &lt;callback_id&gt;20&lt;/callback_id&gt;
+&lt;/request&gt;
+</pre>
+<h4>Response</h4>
+<pre name="code" class="xml">
+&lt;?xml version="1.0" encoding="utf-8"?&gt;
+&lt;response xmlns="http://www.freshbooks.com/api/" status="ok" /&gt;
+</pre>
+<h2>Valid Events</h2>
+<p><a name="events"></a></p>
+<p>Events in FreshBooks are identified by the combination of a noun and a verb (i.e. invoice.create). You can subscribe to all supported events related to a noun by using only the noun part (i.e. estimate) or you can subscribe to all events regardless of noun using the special string &#8216;all&#8217;. Note that callbacks are notified when these events occur from within the FreshBooks application or from another application that uses the FreshBooks API.</p>
+<ul>
+<li>all</li>
+<li>category</li>
+<li>category.create</li>
+<li>category.delete</li>
+<li>category.update</li>
+<li>client</li>
+<li>client.create</li>
+<li>client.delete</li>
+<li>client.update</li>
+<li>estimate</li>
+<li>estimate.create</li>
+<li>estimate.delete</li>
+<li>estimate.sendByEmail</li>
+<li>estimate.update</li>
+<li>expense</li>
+<li>expense.create</li>
+<li>expense.delete</li>
+<li>expense.update</li>
+<li>invoice</li>
+<li>invoice.create</li>
+<li>invoice.delete</li>
+<li>invoice.dispute</li>
+<li>invoice.pastdue.1</li>
+<li>invoice.pastdue.2</li>
+<li>invoice.pastdue.3</li>
+<li>invoice.sendByEmail</li>
+<li>invoice.sendBySnailMail</li>
+<li>invoice.update</li>
+<li>item</li>
+<li>item.create</li>
+<li>item.delete</li>
+<li>item.update</li>
+<li>payment</li>
+<li>payment.create</li>
+<li>payment.delete</li>
+<li>payment.update</li>
+<li>project</li>
+<li>project.create</li>
+<li>project.delete</li>
+<li>project.update</li>
+<li>recurring</li>
+<li>recurring.create</li>
+<li>recurring.delete</li>
+<li>recurring.update</li>
+<li>staff</li>
+<li>staff.create</li>
+<li>staff.delete</li>
+<li>staff.update</li>
+<li>task</li>
+<li>task.create</li>
+<li>task.delete</li>
+<li>task.update</li>
+<li>time_entry</li>
+<li>time_entry.create</li>
+<li>time_entry.delete</li>
+<li>time_entry.update</li>
+</ul>
+
+			
+		</div> 
+		<div class="shadow-bottom"></div>
+	</div>
+</div>
+
+
+<div id="side-content" class="col-292 marg-t-30">
+	
+	<div class="box-rounded-sidebar">
+		<h4>Search</h4>
+		<form method="get" action="http://developers.freshbooks.com/">
+			<div class="search-container"><div class="searcher" style="float: left;"><input type="text" value="" name="s" id="s" class="textBox" /></div><div align="right"><input type="image" name="search" value="search" src="http://developers.freshbooks.com/wp/wp-content/themes/FreshDev/images/block.gif" width="28" height="28" class="blog-butt-search" /></div></div>
+		</form>
+	</div>
+	
+	<div class="box-rounded-sidebar">
+		<h4>Developer Stuff</h4>
+		<ul class="no-bullets">
+			<li class="page_item page-item-97"><a href="http://developers.freshbooks.com/" title="API Overview">API Overview</a></li>
+<li class="page_item page-item-334"><a href="http://developers.freshbooks.com/authentication-2/" title="Authentication">Authentication</a></li>
+<li class="page_item page-item-355"><a href="http://developers.freshbooks.com/helper-libraries/" title="Helper Libraries">Helper Libraries</a></li>
+<li class="page_item page-item-86"><a href="http://developers.freshbooks.com/billing/" title="Application Billing">Application Billing</a></li>
+<li class="page_item page-item-91"><a href="http://developers.freshbooks.com/webhooks/" title="Webhooks">Webhooks</a></li>
+<li class="page_item page-item-684"><a href="http://developers.freshbooks.com/implementation-consultants-2/" title="Implementation Consultants">Implementation Consultants</a></li>
+			<li><a href="http://developers.freshbooks.com/blog/" >Developer Blog</a> <a href="http://feeds.feedburner.com/APIBlog"><img width="14" height="14" alt="Developer Blog RSS Feed" src="http://community.freshbooks.com/images/icons/rss.gif" style="margin-bottom: -2px;"></a></li>
+			<li><a href="http://groups.google.com/group/freshbooks-api">Developer Forum</a></li>
+		</ul>
+	</div>
+
+	<div class="box-rounded-sidebar">
+		<h4>API Calls</h4>
+		<ul class="no-bullets">
+			<li class="page_item page-item-104 current_page_item"><a href="http://developers.freshbooks.com/docs/callbacks/" title="Callbacks">Callbacks</a></li>
+<li class="page_item page-item-108"><a href="http://developers.freshbooks.com/docs/categories/" title="Categories">Categories</a></li>
+<li class="page_item page-item-112"><a href="http://developers.freshbooks.com/docs/clients/" title="Clients">Clients</a></li>
+<li class="page_item page-item-115"><a href="http://developers.freshbooks.com/docs/estimates/" title="Estimates">Estimates</a></li>
+<li class="page_item page-item-118"><a href="http://developers.freshbooks.com/docs/expenses/" title="Expenses">Expenses</a></li>
+<li class="page_item page-item-120"><a href="http://developers.freshbooks.com/docs/gateway/" title="Gateway">Gateway</a></li>
+<li class="page_item page-item-122"><a href="http://developers.freshbooks.com/docs/invoices/" title="Invoices">Invoices</a></li>
+<li class="page_item page-item-266"><a href="http://developers.freshbooks.com/docs/items/" title="Items">Items</a></li>
+<li class="page_item page-item-127"><a href="http://developers.freshbooks.com/docs/languages/" title="Languages">Languages</a></li>
+<li class="page_item page-item-130"><a href="http://developers.freshbooks.com/docs/payments/" title="Payments">Payments</a></li>
+<li class="page_item page-item-133"><a href="http://developers.freshbooks.com/docs/projects/" title="Projects">Projects</a></li>
+<li class="page_item page-item-137"><a href="http://developers.freshbooks.com/docs/recurring/" title="Recurring">Recurring</a></li>
+<li class="page_item page-item-140"><a href="http://developers.freshbooks.com/docs/staff/" title="Staff">Staff</a></li>
+<li class="page_item page-item-142"><a href="http://developers.freshbooks.com/docs/system/" title="System">System</a></li>
+<li class="page_item page-item-144"><a href="http://developers.freshbooks.com/docs/tasks/" title="Tasks">Tasks</a></li>
+<li class="page_item page-item-477"><a href="http://developers.freshbooks.com/docs/taxes/" title="Taxes">Taxes</a></li>
+<li class="page_item page-item-146"><a href="http://developers.freshbooks.com/docs/time-entries/" title="Time Entries">Time Entries</a></li>
+		</ul>
+	</div>
+
+	<div class="box-rounded-sidebar">
+		<h4>Resources</h4>
+		<ul class="no-bullets">
+			<li class="page_item page-item-102"><a href="http://developers.freshbooks.com/sample-code/" title="Sample Code">Sample Code</a></li>
+<li class="page_item page-item-99"><a href="http://developers.freshbooks.com/api-tips/" title="Developer Tips">Developer Tips</a></li>
+		</ul>
+	</div>
+
+	<div class="box-rounded-sidebar">
+		<h4>Tour FreshBooks</h4>
+		<ul class="no-bullets">
+			<li><a href="http://www.freshbooks.com">Online Invoicing</a></li>
+			<li><a href="http://www.freshbooks.com/timetracking.php">Time Tracking</a></li>
+			<li><a href="http://www.freshbooks.com/estimates.php">Client Estimates</a></li>
+			<li><a href="http://www.freshbooks.com/expenses.php">Expense Tracking</a></li>
+		</ul>
+	</div>
+</div>
+
+<br clear="all" />
+<div class="marg-20"></div>
+
+
+<div id="footer">
+	<div class="footer-top ostriches">
+		<div class="footer-top-l">
+			Every year <img src="http://www.freshbooks.com/images/footer/logo.gif" width="76" height="31" alt="FreshBooks" /> sends more invoices than there are <a href="http://www.animalcorner.co.uk/wildlife/ostrich.html" target="_blank">ostriches on the planet</a>.
+		</div>
+		<div class="footer-top-r"><div class="button-try-foot"><a href="https://secure.freshbooks.com/subscribe.php?footer_button=1"><img src="http://www.freshbooks.com/images/buttons/button-tryfree-small-30.png" width="214" height="76" alt="Try FreshBooks Free for 30 Days" /></a></div></div>
+	</div>
+
+	<div class="footer-bottom">
+		<ul>
+			<li>
+				<strong>About</strong><br />
+				<a href="http://www.freshbooks.com/story.php?footer_story=1">The FreshBooks story</a><br />
+				<a href="http://www.freshbooks.com/careers?footer_careers=1">Careers</a><br />
+				<a href="http://www.freshbooks.com/media/?footer_press=1">Press Center</a><br />
+				<a href="http://www.freshbooks.com/contact.php?footer_contact=1">Contact</a><br />
+				<a href="http://www.freshbooks.com/newsletter.php?footer_newsletter=1">Newsletter</a><img src="http://www.freshbooks.com/images/new.png" alt="new" class="new">
+			</li>
+			<li>
+				<strong>Tour</strong><br />
+				<a href="http://www.freshbooks.com/billing.php?footer_tour1=1">It's all about getting paid</a><br />
+				<a href="http://www.freshbooks.com/bookkeeping.php?footer_tour2=1">Manage your books</a><br />
+				<a href="http://www.freshbooks.com/workflow.php?footer_tour3=1">More than invoicing</a>					
+       		</li>						
+			<li>
+				<strong>Privacy and Security</strong><br />
+				<a href="http://www.freshbooks.com/security-safeguards.php?footer_security=1">Security Safeguards</a><br />
+				<a href="http://www.freshbooks.com/terms-of-service.php?footer_terms=1">Terms of Service</a><br />
+				<a href="http://www.freshbooks.com/privacy.php?footer_privacy=1">Privacy Policy</a>
+			</li>
+			<li>
+				<strong>Developer Stuff</strong><br />
+				<a href="http://developers.freshbooks.com?footer_api=1">API Documentation</a><br />
+				<a href="http://community.freshbooks.com/forums/viewforum.php?id=19&footer_devforums=1">API Developer Community</a><br />
+				<a href="http://developers.freshbooks.com/blog/?footer_devblog=1">FreshBooks API Blog</a>
+			</li>
+		</ul>
+		
+         
+	</div> 
+</div>        
+
+<div class="footer-base">
+	<span class="vcard">
+			<ul>
+				<li>
+					FreshBooks<br />
+					<span class="street-address">35 Golden Ave, Suite 105</span><br />
+					<span class="locality">Toronto, </span><span class="region">ON</span><br />
+					<span class="postal-code">M6R 2J5</span>
+					<span class="country-name">Canada</span>
+        		</li>
+				<li>
+					Toll Free (NA): 1-866-303-6061<br />
+					Freephone (UK): 0808-101-3408<br />
+					Freephone (Ireland): 1-800-949-046<br />
+					Phone: 416-481-6946
+				</li>
+				<li>
+				<img src="http://www.freshbooks.com/images/footer/logo-rackspace.gif" width="158" height="45" alt="Rackspace" />
+			</li>
+			<li>
+				<a href="http://privacy-policy.truste.com/click-with-confidence/wps/en/www.freshbooks.com/seal_m" title="TRUSTe online privacy certification" target="_blank"><img style="border: none" src="http://privacy-policy.truste.com/certified-seal/wps/en/www.freshbooks.com/seal_m.png" alt="TRUSTe online privacy certification"/></a>
+			</li>
+			</ul>
+		</span>
+	<div class="copyright">
+	Copyright &copy; 2000-2012<br />
+	FreshBooks is a service of 2ndSite Inc. All rights reserved.
+	</div>
+</div>
+
+
+</div> 
+
+
+<!-- Google Analytics --> 
+<script type="text/javascript"> 
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script> 
+<script type="text/javascript"> 
+try {
+var pageTracker = _gat._getTracker("UA-3907864-3");
+pageTracker._trackPageview();
+} catch(err) {}
+</script> 
+
+</body>
+</html>
+
+
+
